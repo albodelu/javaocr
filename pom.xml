@@ -98,6 +98,12 @@
                     </execution>
                 </executions>
             </plugin>
+      <plugin>
+        <groupId>com.simpligility.maven.plugins</groupId>
+        <artifactId>android-maven-plugin</artifactId>
+        <version>4.1.1</version> <!-- use latest release -->
+        <extensions>true</extensions>
+      </plugin>
         </plugins>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <testSourceDirectory>${basedir}/src/test/java</testSourceDirectory>
