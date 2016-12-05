@@ -1,13 +1,8 @@
 language: java
 jdk: oraclejdk7
 before_install:
-  # http://maven.apache.org/download.cgi
-- wget http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
-- tar xf apache-maven-3.3.9-bin.tar.gz
 - wget https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
 - tar xf android-sdk_r24.4.1-linux.tgz
 - ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | ${TRAVIS_BUILD_DIR}/android-sdk-linux/tools/android update sdk -a -u -t tools,platform-tools,build-tools-19.1.0,android-19
--  echo $JAVA_HOME
-- export JAVA_HOME=/usr/lib/jvm/java-7-oracle/
 install: /bin/true
-script: env M2_HOME=${TRAVIS_BUILD_DIR}/apache-maven-3.3.9 ANDROID_HOME=${TRAVIS_BUILD_DIR}/android-sdk-linux ${TRAVIS_BUILD_DIR}/apache-maven-3.3.9/bin/mvn verify -Dandroid.sdk.path=${TRAVIS_BUILD_DIR}/android-sdk-linux
+script: env M2_HOME=/usr/local/maven ANDROID_HOME=${TRAVIS_BUILD_DIR}/android-sdk-linux /usr/local/maven/bin/mvn verify -Dandroid.sdk.path=${TRAVIS_BUILD_DIR}/android-sdk-linux -X -e
