@@ -5,6 +5,6 @@ before_install:
 - tar xf apache-maven-3.3.9-bin.tar.gz
 - wget https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
 - tar xf android-sdk_r24.4.1-linux.tgz
-- ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | ${TRAVIS_BUILD_DIR}/android-sdk-linux/tools/android update sdk -a -u -t tools,platform-tools,build-tools-23.0.3,android-19
+- ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | ${TRAVIS_BUILD_DIR}/android-sdk-linux/tools/android update sdk -a -u -t tools,platform-tools,build-tools-19.1.0,android-19
 install: /bin/true
 script: env M2_HOME=${TRAVIS_BUILD_DIR}/apache-maven-3.3.9 ANDROID_HOME=${TRAVIS_BUILD_DIR}/android-sdk-linux ${TRAVIS_BUILD_DIR}/apache-maven-3.3.9/bin/mvn verify -Dandroid.sdk.path=${TRAVIS_BUILD_DIR}/android-sdk-linux
